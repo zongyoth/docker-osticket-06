@@ -36,3 +36,6 @@ services:
       - "10001:80"
     volumes:
       - ./logs:/var/log/nginx
+      - ./data/upload:/data/upload/
+      - ./data/upload/include/plugins:/data/upload/include/plugins
+      
