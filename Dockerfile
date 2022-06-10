@@ -118,6 +118,6 @@ RUN set -x && \
     rm -rf /var/cache/apk/* && \
     apk del .build-deps
 COPY files/ /
-VOLUME ["/data/upload/include/plugins","/data/upload/include/i18n","/var/log/nginx","/data/upload/"]
+VOLUME ["/data/upload/include/plugins","/data/upload/include/i18n","/var/log/nginx"]
 EXPOSE 80
 CMD ["/data/bin/start.sh"]
