@@ -19,5 +19,8 @@ chown -R www-data:www-data /var/lib/nginx
 mkdir -p /var/log/php
 chown -R www-data:www-data /var/log/php
 
+#Fixed SMTP
+chown -R www-data:www-data /data/upload/include/pear/Net/SMTP.php
+
 #Launch supervisor to manage processes
 exec /usr/bin/supervisord -c /data/supervisord.conf
