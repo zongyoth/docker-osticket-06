@@ -6,19 +6,15 @@ version: "3.4"
 services:
   mariadb:
     image: mariadb
-    container_name: osticket-db-1.16.3
     environment:
       MYSQL_DATABASE: osticket
       MYSQL_USER: osticket
       MYSQL_PASSWORD: osticketsecret
       MYSQL_ROOT_PASSWORD: osticketsecret
     volumes:
-      - ./db/mysql:/var/lib/mysql
-      - ./db/backup:/var/lib/backup
-
+      - mysql_data:/var/lib/mysql
   osticket:
-    image: osticket:1.16.3
-    container_name: osticket-1.16.3
+    image: rlieback/osticket
     environment:
       ADMIN_USERNAME: ostadmin
       MYSQL_HOST: mariadb
@@ -33,6 +29,6 @@ services:
     depends_on:
       - mariadb
     ports:
-      - "10001:80"
-    volumes:
-      - ./logs:/var/log/nginx
+      - "8080:80"
+volumes:
+  mysql_data:
